@@ -24,6 +24,69 @@ app.get('/students',async(req,res)=>{
     }
 });
 
+app.get('/jobs',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from jobs');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
+app.get('/employees',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from employees');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
+app.get('/regions',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from regions');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
+app.get('/departments',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from departments');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
+app.get('/countries',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from countries');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
+app.get('/locations',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from locations');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
+app.get('/jobhistory',async(req,res)=>{
+    try{
+        const result = await pool.query('select * from job_history');
+        res.json(result.rows);
+    }catch(err){
+        res.status(500).json({Error:err.message});
+    }
+});
+
 app.get('/gettotalstd',async(req,res)=>{
     try{
         const result = await pool.query('select count(ID) from student');
